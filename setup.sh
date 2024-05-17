@@ -3,6 +3,8 @@
 xcode-select --install
 
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/nikos/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # ================================================
 # set up git
@@ -12,8 +14,6 @@ git config --global user.email "nikosbosse@gmail.com"
 
 # ================================================
 # clone relevant repos
-mkdir github-synced
-cd github-synced
 git clone https://github.com/nikosbosse/obsidian && cd obsidian && git checkout mac && cd ..
 git clone https://github.com/nikosbosse/zotero-nikos
 # ================================================
@@ -21,7 +21,7 @@ git clone https://github.com/nikosbosse/zotero-nikos
 # ================================================
 # install relevant apps
 brew install --cask iterm2
-brew install --cask keepassx
+brew install --cask keepassxc
 brew install --cask r
 brew install --cask rstudio
 brew install --cask arc 
@@ -40,11 +40,6 @@ brew install pre-commit
 brew install gh
 brew install pandoc
 # brew install --cask amethyst (see https://github.com/ianyh/Amethyst)
-# ================================================
-
-# ================================================
-# shell setup
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 brew install tmux
 brew install tree
 brew install htop
@@ -59,9 +54,16 @@ echo 'alias python=python3' >> ~/.zshrc
 echo 'alias pip=pip3' >> ~/.zshrc
 # ================================================
 
+# ================================================
 # javascript
 brew install node
 brew install nvm
+# ================================================
+
+# ================================================
+# shell setup
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# ================================================
 
 # other to dos 
 #Enable Darkmode
