@@ -10,6 +10,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # set up git
 git config --global user.name "nikosbosse"
 git config --global user.email "nikosbosse@gmail.com"
+git config --global push.autoSetupRemote true
 # ================================================
 
 # ================================================
@@ -63,6 +64,7 @@ brew install nvm
 # ================================================
 # shell setup
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+echo 'set -o vi' >> ~/.zshrc
 # ================================================
 
 # other to dos 
