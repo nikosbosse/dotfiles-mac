@@ -13,8 +13,8 @@ git config --global user.email "nikosbosse@gmail.com"
 git config --global push.autoSetupRemote true
 
 mkdir -p ~/hooks
-touch ~/hooks/.pre-commit
-cat << 'EOF' >> ~/hooks/.pre-commit
+touch ~/hooks/pre-commit
+cat << 'EOF' >> ~/hooks/pre-commit
 #!/bin/bash
 branch='$(git rev-parse --abbrev-ref HEAD)'
 if [ "$branch" = "main" ]; then
@@ -22,7 +22,7 @@ if [ "$branch" = "main" ]; then
   exit 1
 fi
 EOF
-chmod +x ~/hooks/.pre-commit
+chmod +x ~/hooks/pre-commit
 git config --global core.hooksPath ~/hooks
 # ================================================
 
