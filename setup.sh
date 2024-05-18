@@ -11,6 +11,19 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 git config --global user.name "nikosbosse"
 git config --global user.email "nikosbosse@gmail.com"
 git config --global push.autoSetupRemote true
+
+mkdir -p ~/hooks
+touch ~/hooks/.pre-commit
+cat << 'EOF' >> ~/hooks/.pre-commit
+#!/bin/bash
+branch='$(git rev-parse --abbrev-ref HEAD)'
+if [ "$branch" = "main" ]; then
+  echo "You can't commit directly to main. Bad boy!"
+  exit 1
+fi
+EOF
+chmod +x ~/hooks/.pre-commit
+git config --global core.hooksPath ~/hooks
 # ================================================
 
 # ================================================
