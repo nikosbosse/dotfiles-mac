@@ -82,7 +82,8 @@ echo 'set -o vi' >> ~/.zshrc
 
 # other to dos 
 #Enable Darkmode
-#Enable Snap to grid in Finder
+#Enable Snap to grid in Finder: Right click in finder, go to show view options, sort, and then save as default. 
 #Switch caps and Esc, switch fn and ctrl
 # make screenshots save to clipboard
 # update taskleiste to show F1, F2 by default
+# change mac input source from `British` to `ABC`
