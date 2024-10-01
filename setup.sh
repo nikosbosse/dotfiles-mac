@@ -11,6 +11,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 git config --global user.name "nikosbosse"
 git config --global user.email "nikosbosse@gmail.com"
 git config --global push.autoSetupRemote true
+git config --global fetch.prune true
 
 mkdir -p ~/hooks
 touch ~/hooks/pre-commit
@@ -49,7 +50,10 @@ brew install --cask google-cloud-sdk
 brew install --cask anki
 brew install --cask slack
 brew install --cask cursor
+brew install --cask aldente
 brew install --cask docker
+brew install --cask grammarly-desktop
+brew install --cask warp # nicer terminal
 brew install pre-commit
 brew install gh
 brew install pandoc
@@ -58,6 +62,11 @@ brew install tmux
 brew install tree
 brew install htop
 brew install wget
+brew install --cask mactex
+brew install poetry #pacakge management for python
+brew install pipx #package manager to install python packages globally, but somehow still separated in its own environemnt. Necessary for running R in vscode
+pipx ensurepath
+#sudo pipx ensurepath --global # optional to allow pipx actions with --global argument
 # ================================================
 
 # ================================================
@@ -78,10 +87,22 @@ brew install nvm
 # shell setup
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 echo 'set -o vi' >> ~/.zshrc
+
+# shortcut to clean repos
+echo "alias cleanbranches='git fetch -p && git branch -r | awk '\''{print \$1}'\'' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '\''{print \$1}'\'' | xargs git branch -d'" >> ~/.zshrc
+
+echo "alias Cleanbranches='git fetch -p && git branch -r | awk '\''{print \$1}'\'' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '\''{print \$1}'\'' | xargs git branch -D'" >> ~/.zshrc
+# ================================================
+
+# ================================================
+# set up cursor
+# need to install radian using pipx
+# need to download synced extensions. The necessary cursor extension is called "Settings Sync" (by Shan). The relevant gist is https://gist.github.com/nikosbosse/4ebe00c271d1e275df6c3055d8fc8fda. 
+# the keyboard shortcut to download settings is SHIFT + OPTION + D (upload is SHIFT + Option + D)
 # ================================================
 
 # other to dos 
-#Enable Darkmode
+#Enable Darkmode in settings
 #Enable Snap to grid in Finder: Right click in finder, go to show view options, sort, and then save as default. 
 #Switch caps and Esc, switch fn and ctrl
 # make screenshots save to clipboard
