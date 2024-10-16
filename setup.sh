@@ -50,6 +50,7 @@ brew install --cask google-cloud-sdk
 brew install --cask anki
 brew install --cask slack
 brew install --cask cursor
+defaults write $(osascript -e 'id of app "Cursor"') ApplePressAndHoldEnabled -bool false # for VIM mode, allow hold key down to be repeated keystrokes
 brew install --cask aldente
 brew install --cask docker
 brew install --cask grammarly-desktop
@@ -64,6 +65,7 @@ brew install htop
 brew install wget
 brew install --cask mactex
 brew install poetry #pacakge management for python
+brew install uv #package management for python
 brew install pipx #package manager to install python packages globally, but somehow still separated in its own environemnt. Necessary for running R in vscode
 pipx ensurepath
 #sudo pipx ensurepath --global # optional to allow pipx actions with --global argument
