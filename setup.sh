@@ -12,6 +12,7 @@ git config --global user.name "nikosbosse"
 git config --global user.email "nikosbosse@gmail.com"
 git config --global push.autoSetupRemote true
 git config --global fetch.prune true
+git config --global rerere.enabled true
 
 mkdir -p ~/hooks
 touch ~/hooks/pre-commit
@@ -50,6 +51,7 @@ brew install --cask google-cloud-sdk
 brew install --cask anki
 brew install --cask slack
 brew install --cask cursor
+brew install --cask rectangle # push windows into different corners
 defaults write $(osascript -e 'id of app "Cursor"') ApplePressAndHoldEnabled -bool false # for VIM mode, allow hold key down to be repeated keystrokes
 brew install --cask aldente
 brew install --cask docker
@@ -89,6 +91,9 @@ brew install nvm
 # shell setup
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 echo 'set -o vi' >> ~/.zshrc
+
+# make time appear in terminal before a command
+echo 'PROMPT="[%D{%H:%M:%S}] $PROMPT"' >> ~/.zshrc
 
 # shortcut to clean repos
 echo "alias cleanbranches='git fetch -p && git branch -r | awk '\''{print \$1}'\'' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '\''{print \$1}'\'' | xargs git branch -d'" >> ~/.zshrc
