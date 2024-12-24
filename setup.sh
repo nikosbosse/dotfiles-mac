@@ -66,6 +66,8 @@ brew install tree
 brew install htop
 brew install wget
 brew install --cask mactex
+brew install --cask audacity # Musikprogramm
+brew install ffmpeg
 brew install poetry #pacakge management for python
 brew install uv #package management for python
 brew install pipx #package manager to install python packages globally, but somehow still separated in its own environemnt. Necessary for running R in vscode
