@@ -94,6 +94,8 @@ brew install nvm
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 echo 'set -o vi' >> ~/.zshrc
 
+brew install zsh-autosuggestions
+
 # make time appear in terminal before a command
 echo 'PROMPT="[%D{%H:%M:%S}] $PROMPT"' >> ~/.zshrc
 
@@ -101,6 +103,8 @@ echo 'PROMPT="[%D{%H:%M:%S}] $PROMPT"' >> ~/.zshrc
 echo "alias cleanbranches='git fetch -p && git branch -r | awk '\''{print \$1}'\'' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '\''{print \$1}'\'' | xargs git branch -d'" >> ~/.zshrc
 
 echo "alias Cleanbranches='git fetch -p && git branch -r | awk '\''{print \$1}'\'' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '\''{print \$1}'\'' | xargs git branch -D'" >> ~/.zshrc
+
+echo "source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc
 # ================================================
 
 # ================================================
