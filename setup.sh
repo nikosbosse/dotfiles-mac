@@ -73,6 +73,7 @@ brew install uv #package management for python
 brew install pipx #package manager to install python packages globally, but somehow still separated in its own environemnt. Necessary for running R in vscode
 pipx ensurepath
 #sudo pipx ensurepath --global # optional to allow pipx actions with --global argument
+brew install --cask raycast # replaces the regular Spotlight. Also need to update the hotkey from Option+Space to Command+Space
 # ================================================
 
 # ================================================
