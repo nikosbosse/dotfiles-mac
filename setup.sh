@@ -40,7 +40,8 @@ brew install --cask iterm2
 brew install --cask keepassxc
 brew install --cask r
 brew install --cask rstudio
-brew install --cask arc 
+brew install --cask arc
+brew install --cask zen
 brew install --cask brave-browser
 brew install --cask dropbox
 brew install --cask google-drive
@@ -65,7 +66,9 @@ brew install tmux
 brew install tree
 brew install htop
 brew install wget
-brew install --cask mactex
+brew install --cask mactex # guide: https://mathjiajia.github.io/vscode-and-latex/
+alias tlmgr='/Library/TeX/texbin/tlmgr' # alias, suggested by claude
+export PATH="/Library/TeX/texbin:$PATH" # Add this to ensure TeX Live commands use the MacTeX installation
 brew install --cask audacity # Musikprogramm
 brew install ffmpeg
 brew install poetry #pacakge management for python
@@ -77,7 +80,7 @@ brew install --cask raycast # replaces the regular Spotlight. Also need to updat
 # ================================================
 
 # ================================================
-# python 
+# python
 brew install python
 brew install pipenv
 echo 'alias python=python3' >> ~/.zshrc
@@ -111,13 +114,13 @@ echo "source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh" >>
 # ================================================
 # set up cursor
 # need to install radian using pipx
-# need to download synced extensions. The necessary cursor extension is called "Settings Sync" (by Shan). The relevant gist is https://gist.github.com/nikosbosse/4ebe00c271d1e275df6c3055d8fc8fda. 
+# need to download synced extensions. The necessary cursor extension is called "Settings Sync" (by Shan). The relevant gist is https://gist.github.com/nikosbosse/4ebe00c271d1e275df6c3055d8fc8fda.
 # the keyboard shortcut to download settings is SHIFT + OPTION + D (upload is SHIFT + Option + D)
 # ================================================
 
-# other to dos 
+# other to dos
 #Enable Darkmode in settings
-#Enable Snap to grid in Finder: Right click in finder, go to show view options, sort, and then save as default. 
+#Enable Snap to grid in Finder: Right click in finder, go to show view options, sort, and then save as default.
 #Switch caps and Esc, switch fn and ctrl
 # make screenshots save to clipboard
 # update taskleiste to show F1, F2 by default
