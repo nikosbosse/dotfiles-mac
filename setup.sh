@@ -13,6 +13,8 @@ git config --global user.email "nikosbosse@gmail.com"
 git config --global push.autoSetupRemote true
 git config --global fetch.prune true
 git config --global rerere.enabled true
+brew install lazygit
+echo 'alias lg=lazygit' >> ~/.zshrc
 # ================================================
 
 # ================================================
@@ -55,9 +57,10 @@ brew install tree
 brew install htop
 brew install wget
 brew install --cask mactex # guide: https://mathjiajia.github.io/vscode-and-latex/
-alias tlmgr='/Library/TeX/texbin/tlmgr' # alias, suggested by claude
+echo 'alias tlmgr=/Library/TeX/texbin/tlmgr' >> ~/.zshrc
 export PATH="/Library/TeX/texbin:$PATH" # Add this to ensure TeX Live commands use the MacTeX installation
 brew install --cask audacity # Musikprogramm
+echo 'export PATH="/Library/TeX/texbin:$PATH"' >> ~/.zshrc
 brew install ffmpeg
 brew install poetry #pacakge management for python
 brew install uv #package management for python
