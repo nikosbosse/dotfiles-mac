@@ -13,19 +13,6 @@ git config --global user.email "nikosbosse@gmail.com"
 git config --global push.autoSetupRemote true
 git config --global fetch.prune true
 git config --global rerere.enabled true
-
-mkdir -p ~/hooks
-touch ~/hooks/pre-commit
-cat << 'EOF' >> ~/hooks/pre-commit
-#!/bin/bash
-branch='$(git rev-parse --abbrev-ref HEAD)'
-if [ "$branch" = "main" ]; then
-  echo "You can't commit directly to main. Bad boy!"
-  exit 1
-fi
-EOF
-chmod +x ~/hooks/pre-commit
-git config --global core.hooksPath ~/hooks
 # ================================================
 
 # ================================================
@@ -41,8 +28,9 @@ brew install --cask keepassxc
 brew install --cask r
 brew install --cask rstudio
 brew install --cask arc
-brew install --cask zen
+brew install --cask zen # alternative browser
 brew install --cask brave-browser
+# brew install --cask alt-tab # preview windows
 brew install --cask dropbox
 brew install --cask google-drive
 brew install --cask obsidian
@@ -54,10 +42,10 @@ brew install --cask slack
 brew install --cask cursor
 brew install --cask rectangle # push windows into different corners
 defaults write $(osascript -e 'id of app "Cursor"') ApplePressAndHoldEnabled -bool false # for VIM mode, allow hold key down to be repeated keystrokes
-brew install --cask aldente
+brew install --cask aldente # battery management
 brew install --cask docker
 brew install --cask grammarly-desktop
-brew install --cask warp # nicer terminal
+brew install --cask warp # nicer terminal with AI stuff
 brew install pre-commit
 brew install gh
 brew install pandoc
@@ -77,6 +65,8 @@ brew install pipx #package manager to install python packages globally, but some
 pipx ensurepath
 #sudo pipx ensurepath --global # optional to allow pipx actions with --global argument
 brew install --cask raycast # replaces the regular Spotlight. Also need to update the hotkey from Option+Space to Command+Space
+brew install --cask flameshot # screenshot tool -> need to set up hotkey
+brew install stats # show cpu stats at the top bar
 # ================================================
 
 # ================================================
@@ -99,9 +89,17 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 echo 'set -o vi' >> ~/.zshrc
 
 brew install zsh-autosuggestions
+brew install fzf
+$(brew --prefix)/opt/fzf/install
+brew install zsh-syntax-highlighting
+echo 'source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh' >> ~/.zshrc
 
 # make time appear in terminal before a command
 echo 'PROMPT="[%D{%H:%M:%S}] $PROMPT"' >> ~/.zshrc
+
+# backsearch in terminal
+echo 'bindkey "^R" fzf-history-widget' >> ~/.zshrc
+
 
 # shortcut to clean repos
 echo "alias cleanbranches='git fetch -p && git branch -r | awk '\''{print \$1}'\'' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '\''{print \$1}'\'' | xargs git branch -d'" >> ~/.zshrc
@@ -113,7 +111,7 @@ echo "source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh" >>
 
 # ================================================
 # set up cursor
-# need to install radian using pipx
+# need to install radian using pipx for R
 # need to download synced extensions. The necessary cursor extension is called "Settings Sync" (by Shan). The relevant gist is https://gist.github.com/nikosbosse/4ebe00c271d1e275df6c3055d8fc8fda.
 # the keyboard shortcut to download settings is SHIFT + OPTION + D (upload is SHIFT + Option + D)
 # ================================================
@@ -123,5 +121,5 @@ echo "source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh" >>
 #Enable Snap to grid in Finder: Right click in finder, go to show view options, sort, and then save as default.
 #Switch caps and Esc, switch fn and ctrl
 # make screenshots save to clipboard
-# update taskleiste to show F1, F2 by default
+# update taskbar to show F1, F2 by default
 # change mac input source from `British` to `ABC`
